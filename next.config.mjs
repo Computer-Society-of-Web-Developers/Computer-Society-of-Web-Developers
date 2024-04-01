@@ -6,6 +6,7 @@ const nextConfig = {
         dest: "public",
         register: true,
         skipWating: true,
+        // sw: "service-worker.ts",
     })
 };
 
