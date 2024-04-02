@@ -1,17 +1,20 @@
-import Link from "next/link";
+
+"use client"
+
+import Link from "next/link"
+import NetworkSecure from "@/components/NetworkSecure";
 
 export default function page() {
-  return (
+
+  return <NetworkSecure element={
     <>
       <div className="block text-center text-2xl font-bold">Welcome to CSWD</div>
       <ul className="mt-4">
-        <li>
-          <Link href={"/join"} className="block text-center text-blue-500">Join the club</Link>
-        </li>
         <li>
           <Link href={"/api"} className="block text-center text-blue-500">Check the API route</Link>
         </li>
       </ul>
     </>
-  )
+  } />
+
 }
