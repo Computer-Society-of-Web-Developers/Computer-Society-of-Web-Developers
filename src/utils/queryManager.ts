@@ -1,10 +1,6 @@
 import { QUERY_TABLE } from "./config";
 import db from "./db";  // Import the supabase client
 
-// Define the name of the table that will be used to store the queries.
-
-const queryTable = QUERY_TABLE;
-
 // Define the types that will be used in the functions of this module.
 
 interface UserQuery {
@@ -35,7 +31,7 @@ interface DeleteResponse {
 
 export const insertQuery = async (query: UserQuery): Promise<AddResponse> => {
     try {
-        const { data, error } = await db.from(queryTable).insert([query]);
+        const { data, error } = await db.from(QUERY_TABLE).insert([query]);
         if (error) {
             return { success: false, error: error?.message };
         }
@@ -47,7 +43,7 @@ export const insertQuery = async (query: UserQuery): Promise<AddResponse> => {
 
 export const getQueries = async (): Promise<GetResponse> => {
     try {
-        const { data, error } = await db.from(queryTable).select("*");
+        const { data, error } = await db.from(QUERY_TABLE).select("*");
         if (error) {
             return {success: false, error: "Unable to fetch queries..." };
         }
@@ -59,7 +55,7 @@ export const getQueries = async (): Promise<GetResponse> => {
 
 export const deleteQuery = async (id: number): Promise<DeleteResponse> => {
     try {
-        const { error } = await db.from(queryTable).delete().match({ id: id });
+        const { error } = await db.from(QUERY_TABLE).delete().match({ id: id });
         if (error) {
             return { success: false, error: error.message };
         }
@@ -71,7 +67,7 @@ export const deleteQuery = async (id: number): Promise<DeleteResponse> => {
 
 export const updateStatus = async (id: number, status: string): Promise<DeleteResponse> => {
     try {
-        const { error } = await db.from(queryTable).update({ status: status }).match({ id: id });
+        const { error } = await db.from(QUERY_TABLE).update({ status: status }).match({ id: id });
         if (error) {
             return { success: false, error: error.message };
         }
