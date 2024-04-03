@@ -58,12 +58,12 @@ const HeroSection = () => {
                 <h1 className='text-lg md:text-xl text-white mb-6 sm:-ml-24'>
                   Building The Digital Future Together
                 </h1>
-                <Link href={'/apply'} className='mx-auto py-3 sm:mt-5 sm:ml-0 z-10'>
+                <Link href={'/apply'} className='mx-auto py-3 sm:mt-5 sm:ml-0 z-10 w-4/5'>
                   <motion.button
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 2, duration: 0.5 }}
-                    className='text-md text-white font-bold border border-solid border-white w-4/5 py-3 sm:w-44 rounded-full bg-[#49B5C0] hover:bg-[#3c97a1]'
+                    className='mx-auto sm:mt-5 sm:ml-0 text-md text-white font-bold border border-solid border-white w-4/5 py-3 sm:w-44 rounded-full bg-[#49B5C0] hover:bg-[#3c97a1]'
                   >
                     APPLY
                   </motion.button>
