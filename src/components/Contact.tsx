@@ -5,14 +5,15 @@ import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import contact from '@/app/Images/contact.png';
 import NetworkSecure from '@/components/NetworkSecure';
+import Link from 'next/link';
 
 const Contact = () => {
   return (
     <NetworkSecure
       element={
-        <motion.div 
-        whileHover={{ opacity: 1, y: 0 }}  
-        className='w-full min-h-screen bg-[#1A2529] flex flex-col'>
+        <motion.div
+          whileHover={{ opacity: 1, y: 0 }}
+          className='w-full min-h-screen bg-[#1A2529] flex flex-col'>
           <div className='w-full h-1/6 flex justify-center my-5 items-center'>
             <span className='text-4xl md:text-5xl  mt-6 font-extrabold text-white border-b-red-solid-2'>Contact Us</span>
           </div>
@@ -48,11 +49,13 @@ const Contact = () => {
                   <FaLinkedinIn className='text-white hover:text-zinc-300' size={32} />
                   <IoLogoYoutube className='text-white hover:text-zinc-300' size={32} />
                 </div><br />
-                <button
-                  className='text-md md:text-lg border border-solid border-white text-white ml-2 w-5/6 md:w-64 rounded-full py-3 mt-3 bg-[#49B5C0] hover:bg-[#3c97a1]'
-                >
-                  <a href='S'>ASK A QUERY</a>
-                </button>
+                <Link href='mailto:info.cswd.miet@gmail.com'>
+                  <button
+                    className='text-md md:text-lg border border-solid border-white text-white ml-2 w-5/6 md:w-64 rounded-full py-3 mt-3 bg-[#49B5C0] hover:bg-[#3c97a1]'
+                  >
+                    ASK A QUERY
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

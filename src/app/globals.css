@@ -1,53 +1,284 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-            font-family: "Helvetica";
+
+* {
+  font-family: "Helvetica";
 }
+
 .contact-image {
-  transition: opacity 0.5s ease; /* Add transition effect for opacity */
+  transition: opacity 0.5s ease;
+  /* Add transition effect for opacity */
 }
 
 .contact-image:hover {
-  opacity: 0.8; /* Change opacity when hovering */
+  opacity: 0.8;
+  /* Change opacity when hovering */
 }
 
 @media (max-width: 1467px) {
-            .text_h{
-                        font-size: 5rem;
-            }
-           
-            
-          }
+  .text_h {
+    font-size: 5rem;
+  }
+
+
+}
+
 @media (max-width: 1467px) {
-            .text_h{
-                        font-size: 4rem;
-            }
-           
-            
-          }
-          /* styles.css */
-.body {
-  overflow-y: scroll; /* Add vertical scrollbar */
-  scrollbar-width: thin; /* Make the scrollbar thin */
-  scrollbar-color: #a32d2d #f0f0f0; /* Color customization for scrollbar */
+  .text_h {
+    font-size: 4rem;
+  }
+
+
 }
 
-/* Track */
-.body::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Background color of scrollbar track */
+/* styles.css */
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Handle */
-.body::-webkit-scrollbar-thumb {
-  background-color: #888888; /* Color of scrollbar thumb */
-  border-radius: 10px; /* Border radius of scrollbar thumb */
-  border: 3px solid #f0f0f0; /* Border color of scrollbar thumb */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f6f8fa;
+  font-family: 'Poppins', sans-serif;
 }
-@media (max-width: 768px) {
-  .mobile-image {
-    width: 300px; /* Adjust the width as needed */
-    height: 250px; /* Adjust the height as needed */
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1),
+    0px 5px 12px -2px rgba(0, 0, 0, 0.1),
+    0px 18px 36px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+}
+
+.container .title {
+  padding: 25px;
+  background: #f6f8fa;
+}
+
+.container .title p {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.container .title p::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(to right, #F37A65, #D64141);
+}
+
+.user_details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+}
+
+.user_details .input_box {
+  width: calc(100% / 2 - 20px);
+  margin: 0 0 12px 0;
+}
+
+.input_box label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input_box label::after {
+  content: " *";
+  /* color: red; */
+}
+
+.input_box input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: 'Poppins', sans-serif;
+  transition: all 120ms ease-out 0s;
+}
+
+
+.input_box input:focus,
+.input_box input:valid {
+  box-shadow: 0px 0px 0px 2px #AC8ECE;
+}
+
+form .gender {
+  padding: 0px 25px;
+}
+
+.gender .gender_title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.gender .category {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.gender .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.gender .category label .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#radio_1:checked~.category label .one,
+#radio_2:checked~.category label .two,
+#radio_3:checked~.category label .three {
+  border-color: #d9d9d9;
+  background: #D64141;
+}
+
+.gender input {
+  display: none;
+}
+
+.reg_btn {
+  padding: 25px;
+  margin: 15px 0;
+}
+
+.reg_btn input {
+  height: 45px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(to right, #F37A65, #D64141);
+  border-radius: 5px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reg_btn input:hover {
+  background: linear-gradient(to right, #D64141, #F37A65);
+}
+
+@media screen and (max-width: 584px) {
+
+  .user_details {
+    max-height: 340px;
+    overflow-y: scroll;
+  }
+
+  .user_details::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .user_details .input_box {
+    width: 100%;
+  }
+
+  .gender .category {
+    width: 100%;
+  }
+
+}
+
+
+@media screen and (max-width: 419px) {
+  .gender .category {
+    flex-direction: column;
   }
 }
 
+#reason {
+  width: 200%;
+  height: 120px;
+  /* Adjust the height as needed */
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: 'Poppins', sans-serif;
+  transition: all 120ms ease-out 0s;
+}
+
+#reason:focus,
+#reason:valid {
+  box-shadow: 0px 0px 0px 2px #d9d9d9;
+}
+
+.custom_select {
+  position: relative;
+  width: 100%;
+}
+
+.custom_select select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f6f8fa;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  cursor: pointer;
+}
+
+.custom_select select:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px #AC8ECE;
+}
+
+.custom_select::after {
+  content: "\25BC";
+  /* Unicode character for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 419px) {
+  #reason {
+    width: 100%;
+  }
+}
