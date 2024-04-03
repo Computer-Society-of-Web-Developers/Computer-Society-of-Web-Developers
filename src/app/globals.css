@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*{
+            font-family: "Helvetica";
+}
+.contact-image {
+  transition: opacity 0.5s ease; /* Add transition effect for opacity */
+}
+
+.contact-image:hover {
+  opacity: 0.8; /* Change opacity when hovering */
+}
+
+@media (max-width: 1467px) {
+            .text_h{
+                        font-size: 5rem;
+            }
+           
+            
+          }
+@media (max-width: 1467px) {
+            .text_h{
+                        font-size: 4rem;
+            }
+           
+            
+          }
+          /* styles.css */
+.body {
+  overflow-y: scroll; /* Add vertical scrollbar */
+  scrollbar-width: thin; /* Make the scrollbar thin */
+  scrollbar-color: #a32d2d #f0f0f0; /* Color customization for scrollbar */
+}
+
+/* Track */
+.body::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background color of scrollbar track */
+}
+
+/* Handle */
+.body::-webkit-scrollbar-thumb {
+  background-color: #888888; /* Color of scrollbar thumb */
+  border-radius: 10px; /* Border radius of scrollbar thumb */
+  border: 3px solid #f0f0f0; /* Border color of scrollbar thumb */
+}
+@media (max-width: 768px) {
+  .mobile-image {
+    width: 300px; /* Adjust the width as needed */
+    height: 250px; /* Adjust the height as needed */
+  }
+}
+
