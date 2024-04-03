@@ -27,6 +27,7 @@ const Contact = () => {
                 className='contact-image'
               >
                 <Image
+                  alt='Contact Us'
                   src={contact}
                   width={560}
                   height={560}

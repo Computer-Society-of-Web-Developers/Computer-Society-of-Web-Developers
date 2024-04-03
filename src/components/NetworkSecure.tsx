@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import NetworkError from "./NetworkError"
-import { NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY } from "@/utils/config";
 
 export default function NetworkSecure({ element }: { element: React.ReactNode }) {
     const [status, setStatus] = useState(true)
