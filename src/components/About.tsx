@@ -28,7 +28,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <Image src={about} width={450} height={450} />
+                <Image alt='About' src={about} width={450} height={450} />
               </motion.div>
             </div>
             {/* Right column (Text) */}
