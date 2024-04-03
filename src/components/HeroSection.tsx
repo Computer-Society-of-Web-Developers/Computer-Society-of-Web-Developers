@@ -65,7 +65,7 @@ const HeroSection = () => {
                     transition={{ delay: 2, duration: 0.5 }}
                     className='mx-auto sm:mt-5 sm:ml-0 text-md text-white font-bold border border-solid border-white w-4/5 py-3 sm:w-44 rounded-full bg-[#49B5C0] hover:bg-[#3c97a1]'
                   >
-                    APPLY
+                    APPLY...
                   </motion.button>
                 </Link>
               </motion.div>
