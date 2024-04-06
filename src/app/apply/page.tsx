@@ -161,7 +161,6 @@ const RegistrationForm = () => {
                                         <option value="web">Web Developer</option>
                                         <option value="graphics">Graphics Designer</option>
                                         <option value="management">Management Coordinator</option>
-                                        <option value="event">Event</option>
                                     </select>
                                 </div>
                             </div>
