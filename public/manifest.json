@@ -1,12 +1,12 @@
 {
+    "name": "CSWD",
+    "short_name": "Computer Socity of Web Developers",
+    "description": "Computer Society of Web Developers",
     "theme_color": "#000000",
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "CSWD",
-    "short_name": "Computer Socity of Web Developers",
-    "description": "Computer Society of Web Developers",
     "icons": [
         {
             "src": "/icon-192x192.png",

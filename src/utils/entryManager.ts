@@ -50,21 +50,19 @@ const insertResume = async (resume: File, file: string): Promise<NewResumeRespon
     try {
         const { data: uploadData, error } = await db.storage.from(ENTRY_BUCKET).upload(`${file}.pdf`, resume);
         if (error) {
+            console.error(error);
             return { success: false, issue: error?.message };
         }
         const { data: getUrlData } = db.storage.from(ENTRY_BUCKET).getPublicUrl(uploadData.path);
         return { success: true, url: getUrlData.publicUrl };
     } catch (error: any) {
+        console.log('Error in uploading resume', error);
         return { success: false, issue: error as string };
     }
 }
 
 export const insertEntry = async (entry: UserEntry): Promise<NewEntryResponse> => {
     try {
-        const { success, url, issue } = await insertResume(entry.resume, entry.phone);
-        if (!success) {
-            return { success: false, error: url };
-        }
         const info: EntryData = {
             name: entry.name,
             email: entry.email,
@@ -74,12 +72,29 @@ export const insertEntry = async (entry: UserEntry): Promise<NewEntryResponse> =
             skills: entry.skills,
             position: entry.position,
             reason: entry.reason,
-            resume: url as string
+            resume: ""
         }
         const { data, error } = await db.from(ENTRY_TABLE).insert(info);
         if (error) {
-            console.log(error);
-            return { success: false, error: error?.message };
+            console.error(error);
+            if (error.message === 'duplicate key value violates unique constraint "entries_email_key"') {
+                return { success: false, error: "Email already exists..." };
+            } else if (error.message === 'duplicate key value violates unique constraint "entries_phone_key"') {
+                return { success: false, error: "Phone number already exists..." };
+            } else {
+                console.log(error.message);
+                return { success: false, error: error.message };
+            };
+        }
+        const { success, url, issue } = await insertResume(entry.resume, entry.phone);
+        if (!success) {
+            console.error(issue);
+            return { success: false, error: issue };
+        }
+        const { error: updateError } = await db.from(ENTRY_TABLE).update({ resume: url }).match({ phone: entry.phone });
+        if (updateError) {
+            console.error(updateError);
+            return { success: false, error: updateError?.message };
         }
         return { success: true, data: data?.[0] };
     } catch (error) {
