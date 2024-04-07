@@ -22,10 +22,10 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
     try {
-        const { success, error }: AuthorizeResponse = await authorizeAPIRequest(request.headers.get("x-api-key"));
-        if (!success) {
-            return Response.json({ error }, { status: 401 })
-        }
+        // const { success, error }: AuthorizeResponse = await authorizeAPIRequest(request.headers.get("x-api-key"));
+        // if (!success) {
+        //     return Response.json({ error }, { status: 401 })
+        // }
 
         const body: any = await request.formData();
         const response = await insertEntry({
