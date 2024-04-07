@@ -1,10 +1,10 @@
-import { headers } from "next/headers"
 import { getQueries, deleteQuery, insertQuery, updateStatus } from "@/utils/queryManager"
 import { authorizeAPIRequest, AuthorizeResponse } from "@/middlewares/api"
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
     try {
-        const { success, error }: AuthorizeResponse = await authorizeAPIRequest();
+        const { success, error }: AuthorizeResponse = await authorizeAPIRequest(request.headers.get("x-api-key"));
         if (!success) {
             return Response.json({ error }, { status: 401 })
         } else {
@@ -16,13 +16,13 @@ export async function GET() {
             }
         }
     } catch (error) {
-        return Response.json({ error }, { status: 500 })
+        return NextResponse.json({ error }, { status: 500 })
     }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
-        const { success, error }: AuthorizeResponse = await authorizeAPIRequest();
+        const { success, error }: AuthorizeResponse = await authorizeAPIRequest(request.headers.get("x-api-key"));
         if (!success) {
             return Response.json({ error }, { status: 401 })
         } else {
@@ -40,13 +40,13 @@ export async function POST(request: Request) {
             }
         }
     } catch (error) {
-        return Response.json({ error }, { status: 500 })
+        return NextResponse.json({ error }, { status: 500 })
     }
 }
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
     try {
-        const { success, error }: AuthorizeResponse = await authorizeAPIRequest();
+        const { success, error }: AuthorizeResponse = await authorizeAPIRequest(request.headers.get("x-api-key"));
         if (!success) {
             return Response.json({ error }, { status: 401 })
         } else {
@@ -63,9 +63,9 @@ export async function DELETE(request: Request) {
     }
 }
 
-export async function PUT(request: Request) {
+export async function PUT(request: NextRequest) {
     try {
-        const { success, error }: AuthorizeResponse = await authorizeAPIRequest();
+        const { success, error }: AuthorizeResponse = await authorizeAPIRequest(request.headers.get("x-api-key"));
         if (!success) {
             return Response.json({ error }, { status: 401 })
         } else {
